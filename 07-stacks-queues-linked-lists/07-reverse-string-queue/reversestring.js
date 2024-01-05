@@ -1,12 +1,10 @@
 // Using inbuilt functions
-
 function reverseString (str) { 
     return str.split("").reverse().join("");
 }
 
 let test = " hello world"
 let result = reverseString(test);
-
 console.log(result)
 
 
@@ -23,5 +21,24 @@ let reversed = ""
 
 let testing = " hello world"
 let results = reverseStr(test);
-
 console.log(result)
+
+
+//Using a Stacks
+function reverseStringWithStack(str){
+    const stack =[];
+
+    for(let i = 0; i < str.length; i++){
+        stack.push(str[i])
+    }
+
+    let reversedString = '';
+    while(stack.length > 0){
+        reversedString += stack.pop();
+    }
+
+    return reversedString
+}
+let originalString = 'Hello, World!';
+let reversedString = reverseStringWithStack(originalString);
+console.log(reversedString);
