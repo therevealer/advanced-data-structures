@@ -4,20 +4,22 @@ const Stack = require('./stack');
 function isPalindromeQueueStack(str) {
     const cleanedStr = str.toLowerCase().replace(/[\W_]/g, '');
     
-    const stack = new Stack();
-    const queue = new Queue();
+    const charStack = new Stack();
+    const charQueue = new Queue();
 
-    for (let i = str.length - 1; i <= 0; i--){
-        queue.enqueue(str[i]) 
+    for (let i = 0; i < cleanedStr.length; i++){
+        const char = cleanedStr.charAt(i);
+        charQueue.enqueue(char)
+        charStack.push(char);
     }
 
-    const reversedString = "";
-    while(!queue.isEmpty()){
-    reversedString+= queue.dequeue()
+    while(!charQueue.isEmpty()){
+        if(charQueue != charStack){
+            return false
+        }
     }
 
-
-
+    return true;
 }
 
 module.exports = isPalindromeQueueStack;
